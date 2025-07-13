@@ -18,6 +18,7 @@ def thank_you():
       gender=request.form.get("gender")
       text=request.form.get("text1")
       country=request.form.get("country")
+      photo=request.files.get("photo")
       if not fname:
        error_message = "First name is required :)"
        return render_template('form.html',error_message=error_message,fname=fname,lname=lname,gender=gender,email=email,tel=tel,text=text,country=country)
@@ -33,10 +34,14 @@ def thank_you():
       if not gender:
        error_message = "choose your gender please :)"
        return render_template('form.html',error_message=error_message,fname=fname,lname=lname,gender=gender,email=email,tel=tel,text=text,country=country)
+      
       if not tel:
         error_message = "tel is required :)"
         return render_template('form.html',error_message=error_message,fname=fname,lname=lname,gender=gender,email=email,tel=tel,text=text,country=country)
-
+      
+      if not photo or photo.filename =='':
+        error_message = "please uploade you photo :)"
+        return render_template('form.html',error_message=error_message,fname=fname,lname=lname,gender=gender,email=email,tel=tel,text=text,country=country)
 
       return render_template('thankyou.html')
    else:

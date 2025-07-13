@@ -12,7 +12,7 @@
   background-size: cover;
   background-position: center;">
 
-<form class="container" action="/Thnks" method="post">
+<form class="container" action="/Thnks" method="post" enctype="multipart/form-data">
  <div class="card p-5 mt-5">
   <h1 class="card-title">Contact Us</h1>
   <div class="card-text pt-3" >Please fill out this form so we can assist you better. Your feedback matters to us!</div>
@@ -52,7 +52,7 @@
         </div>
         <div class="col">
           <label class="form-label">Upload your photo:</label>
-          <input type="file" class="form-control">
+          <input  name="photo" type="file" class="form-control">
         </div>
 
         <div class="col">
