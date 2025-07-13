@@ -13,12 +13,23 @@ def thank_you():
    if request.method == 'POST':
       fname=request.form.get("Fname")
       lname=request.form.get("Lname")
-      if fname=="":
+      email=request.form.get("email")
+      tel=request.form.get("tel")
+      gender=request.form.get("gender")
+      if not fname:
        error_message = "First name is required :)"
        return render_template('form.html',error_message=error_message)
       
-      if lname=="":
+      if not lname:
        error_message = "Last name is required :)"
+       return render_template('form.html',error_message=error_message)
+      
+      if not email:
+       error_message = "Email is required :)"
+       return render_template('form.html',error_message=error_message)
+      
+      if not gender:
+       error_message = "choose your gender please :)"
        return render_template('form.html',error_message=error_message)
 
       return render_template('thankyou.html')
