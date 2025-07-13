@@ -11,11 +11,14 @@
   background-image: url('{{ url_for('static', filename='images/coolbackgrounds-unsplash-jilden.jpg') }}');
   background-size: cover;
   background-position: center;">
+
 <form class="container" action="/Thnks" method="post">
  <div class="card p-5 mt-5">
   <h1 class="card-title">Contact Us</h1>
   <div class="card-text pt-3" >Please fill out this form so we can assist you better. Your feedback matters to us!</div>
-
+  {% if error_message %}
+  <div class="alert alert-danger">{{ error_message }}</div>
+  {% endif %}
     <div class="row mb-5">
        <div class="col">
             <label for="Fname" class="form-label">First Name:</label>
@@ -72,5 +75,6 @@
      <button type="submit" class="btn btn-primary">submit</button>
    </div>
  </div>
-</form>
+</form> 
+
 </html>
