@@ -16,7 +16,7 @@ def thank_you():
       email=request.form.get("email")
       tel=request.form.get("tel")
       gender=request.form.get("gender")
-      text=request.form.get("text1")
+      password=request.form.get("password")
       country=request.form.get("country")
       photo=request.files.get("photo")
       if not fname:
@@ -35,12 +35,8 @@ def thank_you():
        error_message = "choose your gender please :)"
        return render_template('form.html',error_message=error_message,fname=fname,lname=lname,gender=gender,email=email,tel=tel,text=text,country=country)
       
-      if not tel:
-        error_message = "tel is required :)"
-        return render_template('form.html',error_message=error_message,fname=fname,lname=lname,gender=gender,email=email,tel=tel,text=text,country=country)
-      
-      if not photo or photo.filename =='':
-        error_message = "please uploade you photo :)"
+      if not password:
+        error_message = "password is required :)"
         return render_template('form.html',error_message=error_message,fname=fname,lname=lname,gender=gender,email=email,tel=tel,text=text,country=country)
 
       return render_template('thankyou.html')

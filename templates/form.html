@@ -10,15 +10,22 @@
   height: 95vh;
   background-image: url('{{ url_for('static', filename='images/coolbackgrounds-unsplash-jilden.jpg') }}');
   background-size: cover;
-  background-position: center;">
+  background-position: center;
+  ">
 
 <form class="container" action="/Thnks" method="post" enctype="multipart/form-data">
- <div class="card p-5 mt-5">
-  <h1 class="card-title">Contact Us</h1>
-  <div class="card-text pt-3" >Please fill out this form so we can assist you better. Your feedback matters to us!</div>
+ <div class="card p-5 mt-5 " >
+  <h1 class="card-title">Create Account</h1>
+  <div class="card-text pt-3" >Please fill out this form to Create your Account</div>
   {% if error_message %}
   <div class="alert alert-danger">{{ error_message }}</div>
   {% endif %}
+  <div class="row">
+    
+    <div class="col-md-3 d-flex justify-content-center align-items-center">
+    <img class=" rounded-circle" src="{{ url_for('static', filename='images/pfp.jpg') }}" alt="User profile picture"  height="150" width="150">
+  </div>
+    <div class="col-md-9">
     <div class="row mb-5">
        <div class="col">
             <label for="Fname" class="form-label">First Name:</label>
@@ -36,11 +43,13 @@
           <input id="email" type="email" name="email" class="form-control" value="{{email or ''}}">
      </div>
       <div class="col">
-          <label for="tel" class="form-label">Tel number:</label>
-         <input id="tel" type="tel" name="tel" class="form-control" value="{{tel or ''}}">
+        <label for="password" class="form-label">password:</label>
+        <input type="password" name="password" class="form-control">
       </div>
-    </div>
-
+  </div>
+</div>
+  
+</div>
       <div class="row mb-5">
         <div class="col ">
            <label class="form-label d-block">Gender:</label>
@@ -51,25 +60,28 @@
            <label for="female">female</label>
         </div>
         <div class="col">
-          <label class="form-label">Upload your photo:</label>
-          <input  name="photo" type="file" class="form-control">
+          <label class="form-label">Upload your profile picture:</label>
+          <input  name="photo" type="file" class="form-control" >
         </div>
-
+        </div>
+      
+      <div class="row">
         <div class="col">
-          <label for="country" class="form-label">Select your wilaya:</label>
-          <select name="country" id="country" class="form-select">
-            <option value="alg" {% if country == 'alg' %}selected{% endif %}>Alger</option>
-            <option value="orn" {% if country == 'orn' %}selected{% endif %}>Oran</option>
-            <option value="jj" {% if country == 'jj' %}selected{% endif %}>Jijle</option>
-            <option value="ot" {% if country == 'ot' %}selected{% endif %}>other</option>
-          </select>
+          <label for="tel" class="form-label">Tel number:</label>
+          <input id="tel" type="tel" name="tel" class="form-control" value="{{tel or ''}}">
         </div>
-      </div>
 
-    <div class="row">
-        <label for="text1" class="form-label"> Give us your feedback:</label>
-        <textarea name="text1" id="text1" class="form-control" >{{text or ''}}</textarea>
-    </div>   
+         <div class="col">
+           <label for="country" class="form-label">Select your wilaya:</label>
+           <select name="country" id="country" class="form-select">
+             <option value="alg" {% if country == 'alg' %}selected{% endif %}>Alger</option>
+             <option value="orn" {% if country == 'orn' %}selected{% endif %}>Oran</option>
+             <option value="jj" {% if country == 'jj' %}selected{% endif %}>Jijle</option>
+             <option value="ot" {% if country == 'ot' %}selected{% endif %}>other</option>
+           </select>
+         </div>
+      </div>
+ </div>
     <div class="text-end mt-3">
      <button type="reset" class="btn btn-secondary ">reset</button>
      <button type="submit" class="btn btn-primary">submit</button>
