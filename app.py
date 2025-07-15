@@ -12,7 +12,7 @@ def thank_you():
    
    if request.method == 'POST':
       fname=request.form.get("Fname")
-      lname=request.form.get("Lname")
+      username=request.form.get("username")
       email=request.form.get("email")
       tel=request.form.get("tel")
       gender=request.form.get("gender")
@@ -20,24 +20,24 @@ def thank_you():
       country=request.form.get("country")
       photo=request.files.get("photo")
       if not fname:
-       error_message = "First name is required :)"
-       return render_template('form.html',error_message=error_message,fname=fname,lname=lname,gender=gender,email=email,tel=tel,text=text,country=country)
+       error_message = "Name is required :)"
+       return render_template('form.html',error_message=error_message,fname=fname,username=username,gender=gender,email=email,tel=tel,country=country)
       
-      if not lname:
-       error_message = "Last name is required :)"
-       return render_template('form.html',error_message=error_message,fname=fname,lname=lname,gender=gender,email=email,tel=tel,text=text,country=country)
+      if not username:
+       error_message = "username is required :)"
+       return render_template('form.html',error_message=error_message,fname=fname,username=username,gender=gender,email=email,tel=tel,country=country)
       
       if not email:
        error_message = "Email is required :)"
-       return render_template('form.html',error_message=error_message,fname=fname,lname=lname,gender=gender,email=email,tel=tel,text=text,country=country)
+       return render_template('form.html',error_message=error_message,fname=fname,username=username,gender=gender,email=email,tel=tel,country=country)
       
       if not gender:
        error_message = "choose your gender please :)"
-       return render_template('form.html',error_message=error_message,fname=fname,lname=lname,gender=gender,email=email,tel=tel,text=text,country=country)
+       return render_template('form.html',error_message=error_message,fname=fname,username=username,gender=gender,email=email,tel=tel,country=country)
       
       if not password:
         error_message = "password is required :)"
-        return render_template('form.html',error_message=error_message,fname=fname,lname=lname,gender=gender,email=email,tel=tel,text=text,country=country)
+        return render_template('form.html',error_message=error_message,fname=fname,username=username,gender=gender,email=email,tel=tel,country=country)
 
       return render_template('thankyou.html')
    else:
