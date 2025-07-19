@@ -1,2 +1,1 @@
-A basic web form (creat account) project to learn front-end with Bootstrap and back-end with Flask.
-it has a database now 😁
+I'm building a basic 'Create Account' web form to learn front-end development with Bootstrap and back-end development with Flask. It now includes a database!😁 
