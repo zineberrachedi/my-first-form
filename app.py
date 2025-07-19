@@ -39,7 +39,32 @@ def thank_you():
         error_message = "password is required :)"
         return render_template('form.html',error_message=error_message,fname=fname,username=username,gender=gender,email=email,tel=tel,country=country)
 
-      return render_template('thankyou.html')
+      
+        # حفظ الصورة
+      pfpname = "deff.png"
+      if photo and photo.filename:
+            pfpname = photo.filename
+            photo.save(f"static/uploads/{pfpname}")
+
+        # حفظ البيانات في قاعدة البيانات
+      try:
+            con = sqlite3.connect("myDataBase.db")
+            cursor = con.cursor()
+            cursor.execute('''
+                INSERT INTO USERS (name, username, email, password, gender, tel, country, photo)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            ''', (fname, username, email, password, gender, tel, country, pfpname))
+            con.commit()
+            message ="success"
+      except Exception as e:
+            con.rollback()
+            message ="an error has accoured in the database"
+            return render_template('form.html', message=message, fname=fname, username=username, gender=gender, email=email, tel=tel, country=country)
+      finally:
+            con.close()
+
+      return render_template('thankyou.html',message=message)
+
    else:
 
     return render_template("form.html")
