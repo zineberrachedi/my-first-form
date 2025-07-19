@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
     <title>Form</title>
 </head>
@@ -10,8 +10,8 @@
   height: 95vh;
   background-image: url('{{ url_for('static', filename='images/purp.png') }}');
   background-size: cover;
-  background-position: center;
-  ">
+  background-position: center">
+
 
 <form class="container" action="/Thnks" method="post" enctype="multipart/form-data">
  <div class="card p-5 mt-5 " >
@@ -23,7 +23,7 @@
   <div class="row">
 
     <div class="col-md-3 d-flex justify-content-center align-items-center">
-    <img class=" rounded-circle img-thumbnail img-fluid" src="{{ url_for('static', filename='images/pfp.jpg') }}" alt="User profile picture" style="max-width: 250px;"  >
+    <img class=" rounded-circle img-thumbnail img-fluid" src="{{ url_for('static', filename='images/pfp.jpg') }}" alt="User profile picture" id="pfp" style="max-width: 250px;"  >
   </div>
     <div class="col-md-9">
     <div class="row mb-5">
@@ -61,7 +61,7 @@
         </div>
         <div class="col">
           <label class="form-label">Upload your profile picture:</label>
-          <input  name="photo" type="file" class="form-control" >
+          <input  name="photo" type="file" class="form-control" id="pfpin" >
         </div>
         </div>
       
@@ -89,4 +89,7 @@
  </div>
 </div>
 </form> 
+
+<script src="{{ url_for('static', filename='js/reactions.js') }}"></script>
+</body>
 </html>
